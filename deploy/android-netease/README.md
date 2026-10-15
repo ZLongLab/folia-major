@@ -7,7 +7,11 @@
 
 ## Render（Docker）
 
-导入 ZLongLab/folia-major 的 codex/android-xiaomi-0.7.19 分支，Blueprint 文件选择 deploy/android-netease/render.yaml。
+[部署到自己的 Render 账号](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FZLongLab%2Ffolia-major%2Ftree%2Fcodex%2Fandroid-xiaomi-0.7.19)
+
+配置固定使用安卓分支、免费实例和新加坡区域；自动部署关闭。
+
+导入 ZLongLab/folia-major 的 codex/android-xiaomi-0.7.19 分支，Blueprint 文件使用仓库根目录 render.yaml。
 也可手动创建 Web Service：Dockerfile 路径 deploy/android-netease/Dockerfile，Docker context deploy/android-netease。
 健康检查 /healthz；CORS_ALLOW_ORIGIN=https://localhost；ENABLE_GENERAL_UNBLOCK=false。
 只有云平台显示部署成功且公网 HTTPS 健康检查成功，才能把实际根地址填入 APK。

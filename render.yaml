@@ -1,7 +1,10 @@
-# 当前文件：Render Blueprint，导入此 Fork 的安卓分支后选择本文件。
+# 当前文件：Render 一键部署入口，只部署独立网易云接口。
 services:
   - type: web
     name: folia-netease-zlonglab
+    repo: https://github.com/ZLongLab/folia-major
+    branch: codex/android-xiaomi-0.7.19
+    autoDeployTrigger: off
     runtime: docker
     plan: free
     region: singapore

@@ -51,7 +51,7 @@ packaging/android/build.ps1 设置本次构建的 JDK、SDK、GRADLE_USER_HOME�
 
 ## 云端配置
 
-deploy/android-netease 提供锁定 4.41.1 的独立后端、Dockerfile 与 Render Blueprint；没有依赖本地电脑的生产地址。
+deploy/android-netease 提供锁定 4.41.1 的独立后端与 Dockerfile；仓库根目录 render.yaml 提供 Render 一键部署配置；没有依赖本地电脑的生产地址。
 部署步骤、Vercel 备选和验收见 deploy/android-netease/README.md。
 按用户决定，本次先交付 APK 和可部署配置，云账号后续提供；尚未创建或部署实际云服务。
 
