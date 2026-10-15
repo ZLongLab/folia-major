@@ -34,7 +34,10 @@ try {
     $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
     $target = Join-Path $OutputDirectory "Folia-$version-android-debug.apk"
     Copy-Item -LiteralPath 'android/app/build/outputs/apk/debug/app-debug.apk' -Destination $target -Force
-    $hash = (Get-FileHash -LiteralPath $target -Algorithm SHA256).Hash.ToLowerInvariant()
+    $stream = [IO.File]::OpenRead($target)
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { $hash = [BitConverter]::ToString($sha.ComputeHash($stream)).Replace('-','').ToLowerInvariant() }
+    finally { $stream.Dispose(); $sha.Dispose() }
     Set-Content -LiteralPath "$target.sha256" -Value "$hash  $([IO.Path]::GetFileName($target))" -Encoding Ascii
     Write-Output "APK: $target"
     Write-Output "SHA256: $hash"
