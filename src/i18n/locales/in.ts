@@ -1,6 +1,16 @@
 
 
 export default {
+  "androidBackend": {
+    "title": "Hubungkan Folia ke cloud",
+    "description": "Masukkan alamat HTTPS API NetEase yang telah diterapkan. Tablet terhubung langsung tanpa komputer.",
+    "label": "Alamat API cloud NetEase",
+    "invalid": "Gunakan alamat HTTPS publik tanpa kredensial, kueri, atau fragmen.",
+    "privacy": "Gunakan server tepercaya. Kredensial masuk dikirim ke server itu. Server berbeda memerlukan login baru.",
+    "save": "Simpan dan mulai ulang",
+    "later": "Pratinjau aplikasi",
+    "settings": "Layanan musik cloud"
+  },
   "libraryBravais": {
     "suiteName": "Dinding Bravais",
     "homeTitle": "Pustaka",
@@ -639,6 +649,7 @@ export default {
       "desktop-toggle-lyric-api": { "title": "API Lirik", "description": "Alihkan endpoint lirik lokal tanpa autentikasi" },
       "settings-obs-copy-css": { "title": "Salin CSS OBS", "description": "Salin Custom CSS OBS Browser Source yang membawa aset unggahan" },
       "settings-storage": { "title": "Pengaturan penyimpanan", "description": "Buka pengaturan cache dan penyimpanan" },
+      "android-cloud-api": {"title":"API cloud Android","description":"Konfigurasi layanan musik jarak jauh"},
       "settings-r2-sync": { "title": "Pengaturan server sinkronisasi", "description": "Buka pengaturan server sinkronisasi" },
       "sync-now": { "title": "Sinkronkan sekarang", "description": "Sinkronkan tema AI" },
       "export-lyric-cache": { "title": "Ekspor lirik tersimpan", "description": "Simpan semua lirik di perangkat ini sebagai .fia dan LRC enhanced dalam satu zip" },

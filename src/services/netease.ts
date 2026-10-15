@@ -7,6 +7,9 @@ import {
   neteaseUpstreamNetworkError,
 } from './onlineMusic/neteasePlaybackFailure';
 
+import { isCapacitorAndroid } from '../platform/android';
+import { getAndroidApiBase } from '../stores/useAndroidBackendStore';
+
 type UnavailableSongReplacement = {
   replacementSong: SongResult;
   replacementSongId: number;
@@ -29,6 +32,7 @@ const isElectronRuntime = () =>
   Boolean(getElectronBridge() && typeof getElectronBridge()?.getNeteasePort === 'function');
 
 const getConfiguredApiBase = () => {
+  if (isCapacitorAndroid()) return getAndroidApiBase();
   const viteEnv = typeof import.meta !== 'undefined' ? (import.meta as any).env : undefined;
   if (viteEnv && typeof viteEnv.VITE_NETEASE_API_BASE === 'string' && viteEnv.VITE_NETEASE_API_BASE) {
     return viteEnv.VITE_NETEASE_API_BASE;

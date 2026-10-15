@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './i18n/config';
 import './index.css';
 import App from './App';
+import AndroidBackendGate from './components/app/AndroidBackendGate';
 import AppSplashGate from './components/AppSplashGate';
 import RemoteControlApp from './components/remote/RemoteControlApp';
 import ObsBrowserSourceApp from './components/obs/ObsBrowserSourceApp';
@@ -55,7 +56,7 @@ const isRemoteControl = isRemoteControlSurface;
 const isMainApp = isMainAppSurface;
 const renderApp = () => root.render(
     <React.StrictMode>
-      <AppSplashGate>
+      <AndroidBackendGate><AppSplashGate>
         {isNowPlayingObsSource
           ? <ObsNowPlayingSourceApp />
           : isPlayerCapObsSource
@@ -65,7 +66,7 @@ const renderApp = () => root.render(
               : isRemoteControl
                 ? <RemoteControlApp />
                 : <App />}
-      </AppSplashGate>
+      </AppSplashGate></AndroidBackendGate>
     </React.StrictMode>
   );
 

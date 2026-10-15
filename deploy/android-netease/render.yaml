@@ -1,0 +1,15 @@
+# 当前文件：Render Blueprint，导入此 Fork 的安卓分支后选择本文件。
+services:
+  - type: web
+    name: folia-netease-zlonglab
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./deploy/android-netease/Dockerfile
+    dockerContext: ./deploy/android-netease
+    healthCheckPath: /healthz
+    envVars:
+      - key: ENABLE_GENERAL_UNBLOCK
+        value: "false"
+      - key: CORS_ALLOW_ORIGIN
+        value: https://localhost

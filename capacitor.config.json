@@ -1,0 +1,16 @@
+{
+  "appId": "io.github.zlonglab.folia",
+  "appName": "Folia",
+  "webDir": "dist",
+  "backgroundColor": "#09090b",
+  "loggingBehavior": "debug",
+  "server": {
+    "androidScheme": "https",
+    "hostname": "localhost",
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": true
+  }
+}

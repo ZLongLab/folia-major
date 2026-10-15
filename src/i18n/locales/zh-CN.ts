@@ -1,6 +1,16 @@
 
 
 export default {
+  "androidBackend": {
+    "title": "连接 Folia 云端接口",
+    "description": "填写已部署的网易云 API HTTPS 地址。平板直接连接云端，电脑关机后也能使用。",
+    "label": "网易云云端 API 地址",
+    "invalid": "请输入公网 HTTPS 地址，不能包含账号、密码、查询参数或片段。电脑回环和局域网地址无法在外出时使用。",
+    "privacy": "只填写你信任的接口。登录凭据会发送给该服务器；更换服务器需要重新登录。",
+    "save": "保存并重新启动",
+    "later": "稍后配置，先预览应用",
+    "settings": "云端音乐服务"
+  },
   "libraryBravais": {
     "suiteName": "Bravais 墙面",
     "homeTitle": "书库",
@@ -641,6 +651,7 @@ export default {
       "desktop-toggle-lyric-api": { "title": "歌词接口", "description": "切换本地免鉴权歌词接口" },
       "settings-obs-copy-css": { "title": "复制 OBS CSS", "description": "复制 OBS 浏览器源的自定义 CSS，把上传的背景/立绘等资产带到 OBS" },
       "settings-storage": { "title": "存储设置", "description": "打开缓存和存储设置" },
+      "android-cloud-api": {"title":"安卓云端接口","description":"配置远端网易云音乐服务"},
       "settings-r2-sync": { "title": "同步服务设置", "description": "打开同步服务设置" },
       "sync-now": { "title": "立即同步", "description": "同步 AI 主题" },
       "export-lyric-cache": { "title": "导出歌词缓存", "description": "把本机所有歌词打包成 .fia 和增强型 LRC 的 zip" },

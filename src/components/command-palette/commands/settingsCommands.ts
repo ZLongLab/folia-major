@@ -14,10 +14,20 @@ import { librarySuitePickerSurface } from '../surfaces/librarySuitePickerSurface
 import { libraryWallLookCommands } from './libraryWallLookCommands';
 import { openCurrentPagePonder } from '../../../services/ponder/pagePonderTarget';
 
+import { isCapacitorAndroid } from '../../../platform/android';
+import { useAndroidBackendStore } from '../../../stores/useAndroidBackendStore';
+
 // src/components/command-palette/commands/settingsCommands.ts
 // Commands in the `settings` group: settings subviews, app toggles, theme, sync, and desktop-only switches.
 
 export const settingsCommands: CommandPaletteCommand[] = [
+    defineCommand({
+        id: 'android-cloud-api', group: 'settings',
+        title: 'Android cloud API', description: 'Configure the remote music service',
+        keywords: ['backend', 'server', '网易云接口', '云端服务'],
+        isAvailable: () => isCapacitorAndroid(),
+        execute: () => { useAndroidBackendStore.getState().show(); return true; },
+    }),
     createSettingsCommand('settings-help', 'Open Help', 'Open help and shortcuts', ['help', '帮助'], 'help', null, { executeShortcut: 'h' }),
     {
         id: 'ponder-current-page',

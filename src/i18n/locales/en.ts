@@ -1,6 +1,16 @@
 
 
 export default {
+  "androidBackend": {
+    "title": "Connect Folia to the cloud",
+    "description": "Enter your deployed NetEase API HTTPS address. The app connects directly; your computer can be switched off.",
+    "label": "NetEase cloud API address",
+    "invalid": "Use a public HTTPS address without credentials, query parameters or a fragment. Local addresses are unavailable away from your computer.",
+    "privacy": "Only use a server you trust. Music login credentials are sent to that server. A different server requires a new login.",
+    "save": "Save and restart",
+    "later": "Preview app for now",
+    "settings": "Cloud music service"
+  },
   "libraryBravais": {
     "suiteName": "Bravais wall",
     "homeTitle": "Library",
@@ -641,6 +651,7 @@ export default {
       "desktop-toggle-lyric-api": { "title": "Lyrics API", "description": "Toggle the local unauthenticated lyrics endpoint" },
       "settings-obs-copy-css": { "title": "Copy OBS CSS", "description": "Copy the OBS Browser Source Custom CSS carrying uploaded assets" },
       "settings-storage": { "title": "Storage settings", "description": "Open cache and storage settings" },
+      "android-cloud-api": {"title":"Android cloud API","description":"Configure the remote music service"},
       "settings-r2-sync": { "title": "Sync server settings", "description": "Open sync server settings" },
       "sync-now": { "title": "Sync now", "description": "Sync AI themes" },
       "export-lyric-cache": { "title": "Export cached lyrics", "description": "Save every lyric on this device as .fia and enhanced LRC in one zip" },

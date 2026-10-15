@@ -1,14 +1,16 @@
 import type { OnlineProviderId } from '../../types/onlineMusic';
 import { getFromCache, saveToCache } from '../db';
 
+import { getAndroidApiBase } from '../../stores/useAndroidBackendStore';
+
 // src/services/onlineMusic/providerStorage.ts
 
 export const getProviderCacheKey = (providerId: OnlineProviderId, key: string): string => (
-    `online_provider_${providerId}_${key}`
+    `online_provider_${providerId}_${key}${providerId === 'netease' && getAndroidApiBase() ? ':' + getAndroidApiBase() : ''}`
 );
 
 export const getProviderSessionKey = (providerId: OnlineProviderId, key: string): string => (
-    `online_provider:${providerId}:${key}`
+    `online_provider:${providerId}:${key}${providerId === 'netease' && getAndroidApiBase() ? ':' + getAndroidApiBase() : ''}`
 );
 
 // Reads an old unscoped cache once, then stores the value in the provider namespace.
@@ -21,7 +23,7 @@ export const getProviderCacheWithLegacyMigration = async <T>(
     const current = await getFromCache<T>(namespacedKey);
     if (current != null) return current;
 
-    for (const legacyKey of legacyKeys) {
+    for (const legacyKey of (providerId === 'netease' && getAndroidApiBase() ? [] : legacyKeys)) {
         const legacy = await getFromCache<T>(legacyKey);
         if (legacy == null) continue;
         await saveToCache(namespacedKey, legacy);
@@ -40,7 +42,7 @@ export const readProviderSessionValue = (
     const current = localStorage.getItem(namespacedKey);
     if (current != null) return current;
 
-    for (const legacyKey of legacyKeys) {
+    for (const legacyKey of (providerId === 'netease' && getAndroidApiBase() ? [] : legacyKeys)) {
         const legacy = localStorage.getItem(legacyKey);
         if (legacy == null) continue;
         localStorage.setItem(namespacedKey, legacy);
