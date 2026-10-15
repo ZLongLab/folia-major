@@ -53,7 +53,8 @@ packaging/android/build.ps1 设置本次构建的 JDK、SDK、GRADLE_USER_HOME�
 
 deploy/android-netease 提供锁定 4.41.1 的独立后端与 Dockerfile；仓库根目录 render.yaml 提供 Render 一键部署配置；没有依赖本地电脑的生产地址。
 部署步骤、Vercel 备选和验收见 deploy/android-netease/README.md。
-按用户决定，本次先交付 APK 和可部署配置，云账号后续提供；尚未创建或部署实际云服务。
+2026-10-15 已完成 Render 部署：https://folia-netease-zlonglab.onrender.com 。
+APK 已保存该地址，真实账号扫码与在线功能已通过以下真机验证。
 
 首次打开 APK 填真实公网 HTTPS 网易云 API 根地址；也可点“稍后配置，先预览应用”。
 之后从“设置 → 选项 → 集成 → 云端音乐服务”或命令面板“安卓云端接口”重新打开。
@@ -67,7 +68,11 @@ deploy/android-netease 提供锁定 4.41.1 的独立后端与 Dockerfile；仓�
 - 已通过：待部署后端本机启动，/healthz、https://localhost 的 CORS、搜索和 /login/qr/key。
 - 已通过：Xiaomi Pad 7（2410CRP4CC），Android 16，OS3.0.306.0.WOZCNXM，USB 安装与原生冷启动（1514 ms）；首次接口配置页与应用首页显示。
 - 真机 APK 的地址 https://localhost/ 是设备内置资源源，不是电脑服务器；原生平台检查为 android / true，没有 PWA controller。
-- 待验证：云端正式部署、真实账号扫码登录、歌单、音频与歌词同步、关电脑后使用独立网络。
+- 已通过：正式云端 /healthz、Android CORS、搜索、二维码图片生成。
+- 已通过：真实账号扫码登录、歌单加载、前台播放与动态歌词；验证样本为《太聪明》和切换后的《普通朋友》，不代表所有歌曲的账号权限。
+- 已通过：强制停止 App 后冷启动，云端地址和登录会话保留，无需重新扫码。
+- 用户已确认：拔掉 USB、切换手机热点后，另一首歌曲的声音与歌词正常。该项为用户现场反馈，不冒充 ADB 自动测量。
+- 待验证：电脑实际关机后的复测。已确认 APK 通过公网接口与网易云 CDN 联网，ADB reverse 列表为空。
 - 待验证：后台与锁屏连续播放、蓝牙、长时间性能与本地文件扫描；此适配未实现 Android 前台媒体服务。
 
-截图与详细日志在 D:\Downloads\Folia-Android；构建成功不代表网易云账号与音源已验收。
+截图与详细日志在 D:\Downloads\Folia-Android；构建验证、自动真机验证与用户现场反馈分别记录，不把两个播放样本扩展成所有歌曲均可播放。
